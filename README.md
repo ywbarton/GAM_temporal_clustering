@@ -34,8 +34,8 @@ dt.21d[, (cols) := lapply(.SD, function(x) scale(x)), .SDcols = cols] # columns 
 knots <- list(doy = c(0.5, 365.5)) # define array of knots as such to ensure smooth cyclic transition from doy 365 to doy 1  
 m1 <- gam(y ~ s(doy, bs='cc') + s(V1) + ti(V1, doy, bs=c('tp','cc')), data = dt.21d, knots = knots, method="REML", family="poisson")
 
-#### check model output
+#### Check model output
 summary(m1)
 
-#### plot effects for each model term
+#### Plot effects for each model term
 plot(m1)
